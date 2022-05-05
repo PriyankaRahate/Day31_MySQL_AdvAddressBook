@@ -199,4 +199,73 @@ mysql> select * from AddressBook;
 +-----------+----------+
 4 rows in set (0.11 sec)
 
+*************************************************************
+UC9-Ability to identify each Address Book with name and Type
+*************************************************************
+
+mysql> alter table addressbook add bookName varchar(25) not null, add contactType varchar(25)  not null;
+Query OK, 0 rows affected (2.55 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc addressBook;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| firstName    | varchar(50)  | NO   |     | NULL    |       |
+| lastName     | varchar(50)  | NO   |     | NULL    |       |
+| address      | varchar(100) | NO   |     | NULL    |       |
+| city         | varchar(50)  | NO   |     | NULL    |       |
+| state        | varchar(50)  | NO   |     | NULL    |       |
+| zip          | int          | NO   |     | NULL    |       |
+| phoneNumber  | double       | NO   |     | NULL    |       |
+| email        | varchar(100) | NO   |     | NULL    |       |
+| Contect_Type | varchar(100) | YES  |     | NULL    |       |
+| bookName     | varchar(25)  | NO   |     | NULL    |       |
+| contactType  | varchar(25)  | NO   |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+11 rows in set (0.42 sec)
+
+mysql> update AddressBook set bookname='one', contactType='Family' where lastname='Rahate';
+Query OK, 2 rows affected (0.19 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update addressBook set bookname='two' ,contactType='Friends' where firstname='sonu';
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressbook set bookname='two',contactType='Profession' where  lastname='Tohke';
+Query OK, 2 rows affected (0.30 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from AddressBook;
++-----------+----------+----------+----------+-------------+--------+-------------+---------------------+--------------+----------+-------------+
+| firstName | lastName | address  | city     | state       | zip    | phoneNumber | email               | Contect_Type | bookName | contactType |
++-----------+----------+----------+----------+-------------+--------+-------------+---------------------+--------------+----------+-------------+
+| Priyanka  | Rahate   | Bolangir | BBSR     | Odisha      | 768041 |  7339731548 | priyanka2@gmail.com | NULL         | one      | Family      |
+| Ankush    | Rahate   | Kalyan   | Mumbai   | Maharashtra | 421031 |  7458962145 | ankush@gmail.com    | NULL         | one      | Family      |
+| Rupali    | Tohke    | Akola    | Amravati | Maharashtra | 421031 |  9758461235 | Rupali@gmail.com    | NULL         | two      | Profession  |
+| sonu      | Tohke    | Akola    | Amravati | Maharashtra | 421031 |  9758461235 | sonu@gmail.com      | NULL         | two      | Profession  |
++-----------+----------+----------+----------+-------------+--------+-------------+---------------------+--------------+----------+-------------+
+4 rows in set (0.10 sec)
+
+mysql> select * from addressbook where contactType='Family';
++-----------+----------+----------+--------+-------------+--------+-------------+---------------------+--------------+----------+-------------+
+| firstName | lastName | address  | city   | state       | zip    | phoneNumber | email               | Contect_Type | bookName | contactType |
++-----------+----------+----------+--------+-------------+--------+-------------+---------------------+--------------+----------+-------------+
+| Priyanka  | Rahate   | Bolangir | BBSR   | Odisha      | 768041 |  7339731548 | priyanka2@gmail.com | NULL         | one      | Family      |
+| Ankush    | Rahate   | Kalyan   | Mumbai | Maharashtra | 421031 |  7458962145 | ankush@gmail.com    | NULL         | one      | Family      |
++-----------+----------+----------+--------+-------------+--------+-------------+---------------------+--------------+----------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from addressbook where contactType='Profession';
++-----------+----------+---------+----------+-------------+--------+-------------+------------------+--------------+----------+-------------+
+| firstName | lastName | address | city     | state       | zip    | phoneNumber | email            | Contect_Type | bookName | contactType |
++-----------+----------+---------+----------+-------------+--------+-------------+------------------+--------------+----------+-------------+
+| Rupali    | Tohke    | Akola   | Amravati | Maharashtra | 421031 |  9758461235 | Rupali@gmail.com | NULL         | two      | Profession  |
+| sonu      | Tohke    | Akola   | Amravati | Maharashtra | 421031 |  9758461235 | sonu@gmail.com   | NULL         | two      | Profession  |
++-----------+----------+---------+----------+-------------+--------+-------------+------------------+--------------+----------+-------------+
+2 rows in set (0.00 sec)
+
+
+
 
