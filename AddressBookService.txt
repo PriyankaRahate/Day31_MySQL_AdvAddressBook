@@ -56,3 +56,37 @@ mysql> desc AddressBook;
 +-------------+--------------+------+-----+---------+-------+
 8 rows in set (0.40 sec)
 
+***************************************************
+UC3-Ability to insert new Contacts to AddressBook
+***************************************************
+
+mysql> insert into AddressBook (firstname, lastname, address,city, state, zip,phoneNumber,email) values
+    -> ('Priyanka', 'Rahate','Bolangir','BBSR','Odisha', 768041, 7339731548,'priyanka2@gmail.com'),
+    -> ('Pooja', 'Patil','Kalyan','BBSR','Mumbai', 768044, 7451257814,'pooja@gmail.com');
+Query OK, 2 rows affected (0.41 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> desc AddressBook;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstName   | varchar(50)  | NO   |     | NULL    |       |
+| lastName    | varchar(50)  | NO   |     | NULL    |       |
+| address     | varchar(100) | NO   |     | NULL    |       |
+| city        | varchar(50)  | NO   |     | NULL    |       |
+| state       | varchar(50)  | NO   |     | NULL    |       |
+| zip         | int          | NO   |     | NULL    |       |
+| phoneNumber | double       | NO   |     | NULL    |       |
+| email       | varchar(100) | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+8 rows in set (0.44 sec)
+
+mysql> select * from AddressBook;
++-----------+----------+----------+------+--------+--------+-------------+---------------------+
+| firstName | lastName | address  | city | state  | zip    | phoneNumber | email               |
++-----------+----------+----------+------+--------+--------+-------------+---------------------+
+| Priyanka  | Rahate   | Bolangir | BBSR | Odisha | 768041 |  7339731548 | priyanka2@gmail.com |
+| Pooja     | Patil    | Kalyan   | BBSR | Mumbai | 768044 |  7451257814 | pooja@gmail.com     |
++-----------+----------+----------+------+--------+--------+-------------+---------------------+
+2 rows in set (0.12 sec)
+
