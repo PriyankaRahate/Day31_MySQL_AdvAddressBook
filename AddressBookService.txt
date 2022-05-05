@@ -1,0 +1,25 @@
+
+**********************************************
+UC1-Ability to create aAddress Book Service DB
+***********************************************
+
+mysql> create database AddressBookServices1;
+Query OK, 1 row affected (0.72 sec)
+
+mysql> show databases;
++----------------------+
+| Database             |
++----------------------+
+| addressbook          |
+| addressbook1         |
+| addressbookservice   |
+| addressbookservices  |
+| addressbookservices1 |
+| information_schema   |
+| mysql                |
+| performance_schema   |
+| sakila               |
+| sys                  |
+| world                |
++----------------------+
+11 rows in set (0.50 sec)
