@@ -139,3 +139,23 @@ select * from AddressBook where city = 'BBSR' or State='Odisha';
 | Priyanka  | Rahate   | Bolangir | BBSR | Odisha | 768041 |  7339731548 | priyanka2@gmail.com |
 +-----------+----------+----------+------+--------+--------+-------------+---------------------+
 1 row in set (0.00 sec)
+
+****************************************************************
+UC7-Ability to understand the size of address book by City and State
+*****************************************************************
+
+ select count(firstname) from AddressBook where city = 'BBSR';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.12 sec)
+
+mysql> select count(firstName) from AddressBook where state = 'Odisha';
++------------------+
+| count(firstName) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.00 sec)
