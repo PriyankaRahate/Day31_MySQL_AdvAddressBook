@@ -90,3 +90,24 @@ mysql> select * from AddressBook;
 +-----------+----------+----------+------+--------+--------+-------------+---------------------+
 2 rows in set (0.12 sec)
 
+
+************************************************************
+UC4-Ability to edit existing contact person using their name
+************************************************************
+
+mysql> update AddressBook set  lastName='Rahate' where firstname='Priyanka';
+Query OK, 0 rows affected (0.16 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> update addressbook set phoneNumber=9876543210 where firstname='Pooja';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AddressBook;
++-----------+----------+----------+------+--------+--------+-------------+---------------------+
+| firstName | lastName | address  | city | state  | zip    | phoneNumber | email               |
++-----------+----------+----------+------+--------+--------+-------------+---------------------+
+| Priyanka  | Rahate   | Bolangir | BBSR | Odisha | 768041 |  7339731548 | priyanka2@gmail.com |
+| Pooja     | Patil    | Kalyan   | BBSR | Mumbai | 768044 |  9876543210 | pooja@gmail.com     |
++-----------+----------+----------+------+--------+--------+-------------+---------------------+
+2 rows in set (0.04 sec)
